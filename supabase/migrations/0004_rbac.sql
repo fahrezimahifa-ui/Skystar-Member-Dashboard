@@ -23,6 +23,7 @@ $$;
 -- 3) Replace the broad team_members policies with admin-scoped management.
 drop policy if exists tm_insert_self on team_members;
 drop policy if exists tm_write on team_members;
+drop policy if exists tm_read on team_members;
 create policy "tm_read" on team_members for select to authenticated using (is_team_member(team_id));
 create policy "tm_insert_admin" on team_members for insert to authenticated
   with check (is_team_admin(team_id) or auth.uid() = user_id);

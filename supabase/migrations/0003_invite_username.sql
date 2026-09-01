@@ -4,7 +4,7 @@
 
 -- 1) Username column (derived from the synthetic auth email prefix)
 alter table profiles add column if not exists username text unique;
-update profiles set username = split_part(coalesce(email, id), '@', 1) where username is null;
+update profiles set username = split_part(coalesce(email, id::text), '@', 1) where username is null;
 create index if not exists profiles_username_idx on profiles (username);
 
 -- 2) Notify the recipient whenever an invite is created
