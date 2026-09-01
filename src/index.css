@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    color: theme('colors.ink.DEFAULT');
+    font-family: theme('fontFamily.sans');
+    margin: 0;
+    background-color: #EAF1F3;
+    background-image:
+      radial-gradient(70% 60% at 15% 0%, rgba(59, 152, 143, 0.30), transparent 60%),
+      radial-gradient(60% 55% at 90% 5%, rgba(38, 130, 181, 0.30), transparent 60%),
+      radial-gradient(55% 50% at 50% 100%, rgba(244, 219, 115, 0.28), transparent 60%);
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading text-ink;
+  }
+  * {
+    border-color: theme('colors.line');
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border;
+    background: rgba(255, 255, 255, 0.62);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 28px rgba(16, 34, 45, 0.08);
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  /* iOS-style frosted glass surface */
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(16, 34, 45, 0.10);
+  }
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    backdrop-filter: blur(22px) saturate(170%);
+    border-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 12px 40px rgba(16, 34, 45, 0.14);
+  }
+
+  /* Soft mesh/aurora background built from the 3 brand colors.
+     Lives on the content-height wrapper (.app-bg in AppShell) so it
+     SCROLLS with the page. Cards/surfaces are frosted glass on top. */
+  .app-bg {
+    background-color: #EAF1F3;
+    background-image:
+      radial-gradient(60% 50% at 12% 6%, rgba(59, 152, 143, 0.42), transparent 62%),
+      radial-gradient(55% 48% at 88% 10%, rgba(38, 130, 181, 0.42), transparent 62%),
+      radial-gradient(52% 50% at 50% 98%, rgba(244, 219, 115, 0.40), transparent 62%),
+      radial-gradient(42% 42% at 82% 82%, rgba(59, 152, 143, 0.24), transparent 60%);
+    background-repeat: no-repeat;
+    background-attachment: local;
+  }
+}
